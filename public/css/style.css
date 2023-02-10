@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap');
+
+/*# sourceMappingURL=style.css.map */
+
+    body {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    header {
+        text-align: center;
+        box-shadow: 0px 0px 6px 1px rgb(182, 175, 175);
+        padding: 0.3px;
+        margin: 0;
+        position: relative;
+    }
+
+    .logo {
+        font-family: 'Shrikhand', cursive;
+        font-size: xx-large;
+    }
+
+    main .pays-villes {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        background-color: rgb(236, 235, 235);
+        text-align: center;
+        padding: 0.5px;
+    }
+
+    main .pays-villes i {
+        font-size: 1.5rem;
+    }
+
+/*SECTION EXPLOREZ*/
+.explorez {
+    text-align: center;
+}
+
+.explorez h2 {
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.explorez p {
+    font-size: 1rem;
+}
+
+.explorez button {
+    margin-top: 1rem;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 2px 1px 8px -3px #000000;
+    /*couleur de fond du boutton en dégradé*/
+    background-image: linear-gradient(to bottom right, rgba(255, 121, 218, 0.9), rgba(147, 86, 220, 0.9));
+    transition: transform 200ms
+}
+
+/*effectue un zoom et une opacité au passage du curseur*/
+.explorez button:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}

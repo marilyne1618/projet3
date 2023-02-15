@@ -1,0 +1,159 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  padding: 0 1rem;
+}
+
+
+header {
+  text-align: center;
+  box-shadow: 0px 0px 6px 1px rgb(182, 175, 175);
+  padding: 0.3px;
+  margin: 0;
+  position: relative;
+}
+
+.logo {
+  font-family: "Shrikhand", cursive;
+  font-size: xx-large;
+}
+
+.pays-villes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: rgb(236, 235, 235);
+  text-align: center;
+  padding: 0.5px;
+}
+.pays-villes i {
+  font-size: 1.5rem;
+}
+
+/*SECTION EXPLOREZ*/
+.explorez {
+  text-align: center;
+  /*effectue un zoom et une opacité au passage du curseur*/
+}
+.explorez h2 {
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.explorez p {
+  font-size: 1rem;
+}
+.explorez button {
+  margin-top: 1rem;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 2px 1px 8px -3px #000000;
+  /*couleur de fond du boutton en dégradé*/
+  background-image: linear-gradient(to bottom right, rgba(255, 121, 218, 0.9), rgba(147, 86, 220, 0.9));
+  transition: transform 200ms;
+}
+.explorez button:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/*SECTION EXPLOREZ*/
+.explorez {
+  text-align: center;
+  /*effectue un zoom et une opacité au passage du curseur*/
+}
+.explorez h2 {
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.explorez p {
+  font-size: 1rem;
+}
+.explorez button {
+  margin-top: 1rem;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 2px 1px 8px -3px #000000;
+  /*couleur de fond du boutton en dégradé*/
+  background-image: linear-gradient(to bottom right, rgba(255, 121, 218, 0.9), rgba(147, 86, 220, 0.9));
+  transition: transform 200ms;
+}
+.explorez button:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/*création d'une variable pour les pastilles des compteurs*/
+.fonctionnement {
+  /*variable pour faire les compteurs des 3 boutons*/
+  counter-reset: compteurs;
+}
+.fonctionnement h2 {
+  padding: 2rem;
+  font-weight: bold;
+}
+.fonctionnement ol {
+  display: flex;
+  gap: 2rem; /*créer des espaces entre les éléments*/
+  /*j'ai mis 1000px pour que les 3 boutons s'alignent sans transision*/
+}
+@media (max-width: 1000px) {
+  .fonctionnement ol {
+    flex-direction: column;
+  }
+}
+.fonctionnement li {
+  position: relative;
+  /*variable pour faire les compteurs des 3 boutons, et pas besoins d'indiquer les chiffres dans le html*/
+  list-style-type: none; /*ne pas faire apparaître les chiffres indiqués dans le css*/
+  background-color: #f6f6f6;
+  padding: 1.5rem 2rem;
+  flex-grow: 1; /*les caractères ne doivent pas être plus gros que 1*/
+  border-radius: 1rem;
+  box-shadow: 2px 1px 8px -3px #000000;
+}
+.fonctionnement li::before {
+  content: counter(compteurs);
+  counter-increment: compteurs;
+  color: white;
+  background-color: #9355dc;
+  /*pour que les pastilles soient bien rondes avec le chiffre bien centré*/
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 1rem;
+  left: -1rem;
+}
+.fonctionnement li:hover {
+  transform: scale(1.02);
+}
+.fonctionnement li i.fas {
+  margin-right: 1rem;
+  color: #7e7e7e;
+  font-size: 1.5rem;
+}
+
+/*# sourceMappingURL=style.css.map */

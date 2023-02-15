@@ -1,0 +1,56 @@
+@use "../utils/box-shadow.scss";
+@use "..//utils/zoom.scss";
+@use "../utils/variables.scss";
+@use "../utils/colors.scss";
+
+
+.fonctionnement {
+    & h2 {
+        padding: 2rem;
+        font-weight: bold;
+    }
+    /*variable pour faire les compteurs des 3 boutons*/
+    counter-reset: compteurs;
+    & ol {
+        display: flex;
+        gap: 2rem; /*créer des espaces entre les éléments*/
+        /*j'ai mis 1000px pour que les 3 boutons s'alignent sans transision*/
+        @media (max-width: 1000px) {
+            flex-direction: column;
+        }
+    }
+    & li {
+        position: relative;
+        /*variable pour faire les compteurs des 3 boutons, et pas besoins d'indiquer les chiffres dans le html*/
+        &::before {
+            content: counter(compteurs);
+            counter-increment: compteurs;
+            color: white;
+            background-color: colors.$purple;
+            /*pour que les pastilles soient bien rondes avec le chiffre bien centré*/
+            width: 2 * variables.$pastilles-height;
+            height: 2 * variables.$pastilles-height;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            position: absolute;
+            bottom: variables.$pastilles-height;
+            left: -1 * variables.$pastilles-height;
+
+        }
+        list-style-type:none; /*ne pas faire apparaître les chiffres indiqués dans le css*/
+        background-color: #f6f6f6;
+        padding: 1.5rem 2rem;
+        flex-grow: 1; /*les caractères ne doivent pas être plus gros que 1*/
+        border-radius: 1rem;
+        @include box-shadow.base-shadow;
+        &:hover {
+            @include zoom.transform-zoom;
+        }
+        & i.fas {
+            margin-right: 1rem;
+            color: colors.$lightgrey;
+            font-size: 1.5rem;
+        }
+    }
+}

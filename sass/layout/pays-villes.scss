@@ -2,11 +2,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    background-color: rgb(236, 235, 235);
+    color: #19191ada;
+    background-color: rgba(151, 151, 151, 0.247);
     text-align: center;
-    padding: 0.5px;
+    font-size: 0.7rem;
     & i {
-        font-size: 1.5rem;
+        font-size: 1rem;
+    }
+    h2 {
+        padding-top: 0;
     }
 }

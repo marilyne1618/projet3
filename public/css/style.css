@@ -11,7 +11,36 @@ body {
 }
 
 main {
-  padding: 0 1rem;
+  padding: 0 7rem;
+}
+@media (max-width: 768px) {
+  main {
+    padding: 0 0;
+  }
+}
+
+h2 {
+  padding-top: 2rem;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+h3,
+p {
+  margin: 0;
+  padding-left: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /*couleur héritée du parent*/
+}
+
+.menus__cards {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 
@@ -32,27 +61,34 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  background-color: rgb(236, 235, 235);
+  color: rgba(25, 25, 26, 0.8549019608);
+  background-color: rgba(151, 151, 151, 0.247);
   text-align: center;
-  padding: 0.5px;
+  font-size: 0.7rem;
 }
 .pays-villes i {
+  font-size: 1rem;
+}
+.pays-villes h2 {
+  padding-top: 0;
+}
+
+/*SECTION EXPLOREZ*/
+.explorez {
+  background-color: #f1f1f1;
+  height: 300px;
+  text-align: center;
+  /*effectue un zoom et une opacité au passage du curseur*/
+}
+.explorez h2 {
+  margin-top: 0;
+  padding-top: 40px;
   font-size: 1.5rem;
-}
-
-/*SECTION EXPLOREZ*/
-.explorez {
-  text-align: center;
-  /*effectue un zoom et une opacité au passage du curseur*/
-}
-.explorez h2 {
-  margin-top: 2rem;
-  font-size: 2rem;
   font-weight: bold;
 }
 .explorez p {
   font-size: 1rem;
+  color: rgba(70, 70, 70, 0.8549019608);
 }
 .explorez button {
   margin-top: 1rem;
@@ -64,38 +100,7 @@ header {
   border-radius: 2rem;
   box-shadow: 2px 1px 8px -3px #000000;
   /*couleur de fond du boutton en dégradé*/
-  background-image: linear-gradient(to bottom right, rgba(255, 121, 218, 0.9), rgba(147, 86, 220, 0.9));
-  transition: transform 200ms;
-}
-.explorez button:hover {
-  transform: scale(1.02);
-  opacity: 0.9;
-}
-
-/*SECTION EXPLOREZ*/
-.explorez {
-  text-align: center;
-  /*effectue un zoom et une opacité au passage du curseur*/
-}
-.explorez h2 {
-  margin-top: 2rem;
-  font-size: 2rem;
-  font-weight: bold;
-}
-.explorez p {
-  font-size: 1rem;
-}
-.explorez button {
-  margin-top: 1rem;
-  color: white;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 2rem;
-  box-shadow: 2px 1px 8px -3px #000000;
-  /*couleur de fond du boutton en dégradé*/
-  background-image: linear-gradient(to bottom right, rgba(255, 121, 218, 0.9), rgba(147, 86, 220, 0.9));
+  background-image: linear-gradient(to bottom right, #FF79DA, #9356dc);
   transition: transform 200ms;
 }
 .explorez button:hover {
@@ -107,10 +112,8 @@ header {
 .fonctionnement {
   /*variable pour faire les compteurs des 3 boutons*/
   counter-reset: compteurs;
-}
-.fonctionnement h2 {
-  padding: 2rem;
   font-weight: bold;
+  margin-bottom: 60px;
 }
 .fonctionnement ol {
   display: flex;
@@ -120,40 +123,209 @@ header {
 @media (max-width: 1000px) {
   .fonctionnement ol {
     flex-direction: column;
+    margin-right: 15px;
   }
 }
 .fonctionnement li {
   position: relative;
   /*variable pour faire les compteurs des 3 boutons, et pas besoins d'indiquer les chiffres dans le html*/
   list-style-type: none; /*ne pas faire apparaître les chiffres indiqués dans le css*/
-  background-color: #f6f6f6;
+  background-color: #fdfcff;
   padding: 1.5rem 2rem;
   flex-grow: 1; /*les caractères ne doivent pas être plus gros que 1*/
   border-radius: 1rem;
-  box-shadow: 2px 1px 8px -3px #000000;
+  box-shadow: 2px 1px 6px -3px #000000;
 }
 .fonctionnement li::before {
   content: counter(compteurs);
   counter-increment: compteurs;
   color: white;
-  background-color: #9355dc;
+  background-color: #9356dc;
   /*pour que les pastilles soient bien rondes avec le chiffre bien centré*/
   width: 2rem;
   height: 2rem;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  position: absolute;
-  bottom: 1rem;
   left: -1rem;
+  position: absolute;
+  /*Pour bien centrer les pastilles sur leur boutons*/
+  top: 50%;
+  transform: translateY(-50%);
 }
 .fonctionnement li:hover {
   transform: scale(1.02);
+  background-color: rgba(244, 232, 248, 0.9254901961);
 }
 .fonctionnement li i.fas {
   margin-right: 1rem;
   color: #7e7e7e;
   font-size: 1.5rem;
+}
+.fonctionnement li i.fas:hover {
+  color: #9356dc;
+}
+
+.menus {
+  background-color: #f1f1f1;
+  padding-bottom: 70px;
+}
+.menus .menus__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /*mettre sur deux colonnes*/
+  gap: 2rem;
+}
+@media (max-width: 1000px) {
+  .menus .menus__cards {
+    grid-template-columns: repeat(1, 1fr); /*mettre sur une colonne*/
+  }
+}
+.menus .menus__cards .new {
+  position: relative; /*élément parent*/
+}
+.menus .menus__cards .new::before { /*pour qu'il n'y ai que le css qui rajoute le badge sans intervenir dans le html*/
+  content: "nouveau";
+  position: absolute; /*élément enfant*/
+  height: 2rem;
+  width: 5rem;
+  background-color: #99E2D0;
+  color: #278870; /*rend la couleur plus foncée de 50%*/
+  display: grid;
+  place-items: center; /*centre verticalement et horizontalements*/
+  right: 1rem;
+  top: 1rem;
+}
+.menus .card__image {
+  border-radius: 1rem 1rem 0 0;
+  height: 15rem;
+  background-size: cover;
+}
+.menus .card__image-1 {
+  background-image: url("../../public/images/menu-1.jpg");
+}
+.menus .card__image-2 {
+  background-image: url("../../public/images/menu-2.jpg");
+}
+.menus .card__image-3 {
+  background-image: url("../../public/images/menu-3.jpg");
+}
+.menus .card__image-4 {
+  background-image: url("../../public/images/menu-4.jpg");
+}
+.menus .card__description {
+  background-color: white;
+  border-radius: 0 0 1rem 1rem;
+  height: 75px;
+  position: relative;
+}
+.menus .card__description i {
+  font-size: 1.5rem;
+  position: absolute;
+  /*pour bien centrer le coeur verticalement*/
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.menus .card__description .fas {
+  /*couleur du coeur de transparent en dégradé*/
+  color: transparent;
+  background-image: linear-gradient(to bottom right, #FF79DA, #9356dc);
+  background-clip: text;
+  -webkit-background-clip: text; /*s'adapte, si la ligne du dessus ne fonctionne pas*/
+  opacity: 0;
+  transition: all 200ms; /*vitesse à laquelle apparaît la couleur*/
+}
+.menus .card__description:hover .fas {
+  opacity: 1;
+  /*effectue un zoom à une certaine échelle*/
+  transform: translatey(-50%) scale(1.2);
+}
+.menus .card__description p {
+  margin: 0.5rem;
+}
+.menus .card__description h3 {
+  padding-top: 1rem;
+}
+
+footer {
+  background-color: #3d3d3d;
+  margin-left: 7rem;
+  margin-right: 7rem;
+  padding: 1rem 2rem;
+  color: white;
+}
+@media (max-width: 767px) {
+  footer {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+footer h2 {
+  font-family: "shrikhand", "sans-serif";
+  font-weight: normal;
+  padding: 0.5rem 0 0.5rem;
+  margin-bottom: 0.5rem;
+}
+footer p {
+  padding: 0.2rem;
+}
+footer .utensils {
+  padding-right: 0.8rem;
+}
+footer .helping {
+  padding-right: 0.5rem;
+}
+
+h1 {
+  font-family: "Shrikhand", "cursive";
+}
+
+img {
+  max-width: 100%;
+}
+
+.resto__main {
+  position: relative;
+}
+.resto__main i {
+  font-size: 1.5rem;
+  position: absolute;
+  /*pour bien centrer le coeur verticalement*/
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.resto__main .fas {
+  /*couleur du coeur de transparent en dégradé*/
+  color: transparent;
+  background-image: linear-gradient(to bottom right, #FF79DA, #9356dc);
+  background-clip: text;
+  -webkit-background-clip: text; /*s'adapte, si la ligne du dessus ne fonctionne pas*/
+  opacity: 0;
+  transition: all 200ms; /*vitesse à laquelle apparaît la couleur*/
+}
+.resto__main:hover .fas {
+  opacity: 1;
+  /*effectue un zoom à une certaine échelle*/
+  transform: translatey(-50%) scale(1.2);
+}
+.resto__main h2 {
+  font-family: "Shrikhand", "cursive";
+  padding-top: 0;
+  margin-left: 2rem;
+}
+@media (max-width: 767px) {
+  .resto__main h2 {
+    margin-left: 0;
+  }
+}
+.resto__main i {
+  margin-right: 3rem;
+}
+@media (max-width: 767px) {
+  .resto__main i {
+    margin-right: 2rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

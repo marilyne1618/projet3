@@ -1,0 +1,36 @@
+@mixin gradient {
+    background-image: linear-gradient(to bottom right, #FF79DA, #9356dc);
+}
+@mixin base-shadow {
+    box-shadow: 2px 1px 8px -3px #000000;
+}
+@mixin second-shadow {
+    box-shadow:  2px 1px 6px -3px #000000;
+}
+@mixin transform-zoom {
+    transform: scale(1.02);
+}
+@mixin heart {
+    i {
+        font-size: 1.5rem;
+        position: absolute;
+        /*pour bien centrer le coeur verticalement*/
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .fas {
+        /*couleur du coeur de transparent en dégradé*/
+        color: transparent;
+        background-image: linear-gradient(to bottom right, #FF79DA, #9356dc);
+        background-clip: text;
+        -webkit-background-clip: text;/*s'adapte, si la ligne du dessus ne fonctionne pas*/
+        opacity: 0;
+        transition: all 200ms; /*vitesse à laquelle apparaît la couleur*/
+    }
+    &:hover .fas {
+        opacity: 1;
+        /*effectue un zoom à une certaine échelle*/
+        transform: translatey(-50%) scale(1.2);
+    }
+}

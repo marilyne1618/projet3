@@ -1,0 +1,15 @@
+.pays-villes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #19191ada;
+    background-color: rgba(151, 151, 151, 0.247);
+    text-align: center;
+    font-size: 0.7rem;
+    & i {
+        font-size: 1rem;
+    }
+    h2 {
+        padding-top: 0;
+    }
+}

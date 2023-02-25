@@ -1,0 +1,39 @@
+@use "../utils/mixins.scss";
+@use "../utils/colors.scss";
+
+/*SECTION EXPLOREZ*/
+.explorez {
+    background-color: colors.$blocgrey;
+    height: 300px;
+    text-align: center;
+    
+    
+    h2 {
+        margin-top: 0;
+        padding-top: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    & p {
+        font-size: 1rem;
+        color: #464646da;
+    }
+    & button {
+    margin-top: 1rem;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    @include mixins.base-shadow;
+    /*couleur de fond du boutton en dégradé*/
+    @include mixins.gradient;
+    transition: transform 200ms
+}
+/*effectue un zoom et une opacité au passage du curseur*/
+& button:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+}

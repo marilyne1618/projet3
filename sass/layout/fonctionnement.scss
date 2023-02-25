@@ -1,0 +1,62 @@
+@use "../utils/mixins.scss";
+@use "../utils/variables.scss";
+@use "../utils/colors.scss";
+
+
+.fonctionnement {
+    /*variable pour faire les compteurs des 3 boutons*/
+    counter-reset: compteurs;
+    font-weight: bold;
+    margin-bottom: 60px;
+    & ol {
+        display: flex;
+        gap: 2rem; /*créer des espaces entre les éléments*/
+        /*j'ai mis 1000px pour que les 3 boutons s'alignent sans transision*/
+        @media (max-width: 1000px) {
+            flex-direction: column;
+            margin-right: 15px;
+        }
+    }
+    & li {
+        position: relative;
+        /*variable pour faire les compteurs des 3 boutons, et pas besoins d'indiquer les chiffres dans le html*/
+        &::before {
+            content: counter(compteurs);
+            counter-increment: compteurs;
+            color: white;
+            background-color: colors.$primaire;
+            /*pour que les pastilles soient bien rondes avec le chiffre bien centré*/
+            width: 2 * variables.$pastilles-height;
+            height: 2 * variables.$pastilles-height;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            left: -1 * variables.$pastilles-height;
+            position: absolute;
+            /*Pour bien centrer les pastilles sur leur boutons*/
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        list-style-type:none; /*ne pas faire apparaître les chiffres indiqués dans le css*/
+        background-color: #fdfcff;
+        padding: 1.5rem 2rem;
+        flex-grow: 1; /*les caractères ne doivent pas être plus gros que 1*/
+        border-radius: 1rem;
+        @include mixins.second-shadow;
+        &:hover {
+            @include mixins.transform-zoom;
+            background-color: colors.$lightprimaire;
+        }
+        & i.fas {
+            margin-right: 1rem;
+            color: colors.$lightgrey;
+            font-size: 1.5rem;
+            &:hover {
+                color: colors.$primaire;
+            }
+            
+
+            
+        }
+    }
+}

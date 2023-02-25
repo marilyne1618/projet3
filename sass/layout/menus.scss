@@ -1,0 +1,70 @@
+@use "../utils/colors.scss";
+@use "../utils/variables.scss";
+@use "../utils/mixins.scss";
+
+.menus {
+    background-color: colors.$blocgrey;
+    padding-bottom: 70px;
+
+    .menus__cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);/*mettre sur deux colonnes*/
+        gap: 2rem;
+        @media (max-width: variables.$breakpoint) {
+            grid-template-columns: repeat(1, 1fr);/*mettre sur une colonne*/
+        }
+        .new {
+            position: relative;/*élément parent*/
+        }
+        .new::before {/*pour qu'il n'y ai que le css qui rajoute le badge sans intervenir dans le html*/
+            content: "nouveau";
+            position: absolute;/*élément enfant*/
+            height: 2rem;
+            width: 5rem;
+            background-color: colors.$tertiaire;
+            color: darken(colors.$tertiaire, 40%);/*rend la couleur plus foncée de 50%*/
+            display: grid;
+            place-items: center;/*centre verticalement et horizontalements*/
+            right: 1rem;
+            top: 1rem;
+        }  
+    }
+    .card {
+        &__image {
+            border-radius: 1rem 1rem 0 0;
+            height: 15rem;
+            background-size: cover;
+            @media (max-width :767px) {
+                height: 10rem;
+            }
+        }
+        &__image-1 {
+            background-image: url("../../public/images/menu-1.jpg");
+        }
+        &__image-2 {
+            background-image: url("../../public/images/menu-2.jpg");
+        }
+        &__image-3 {
+            background-image: url("../../public/images/menu-3.jpg");
+        }
+        &__image-4 {
+            background-image: url("../../public/images/menu-4.jpg");
+        }
+        &__description {
+            background-color: white;
+            border-radius: 0 0 1rem 1rem;
+            height: 75px;
+            position: relative;
+            @include mixins.heart;
+            p {
+                margin: 0.5rem;
+            }
+            h3 {
+                padding-top: 1rem;
+            }
+            
+        }
+    }
+    
+}
+

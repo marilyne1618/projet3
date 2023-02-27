@@ -1,28 +1,188 @@
 @use "../utils/mixins.scss";
+@use "../utils/colors.scss";
+@use "../layout/footer.scss";
+@use "../utils/variables.scss";
+@use "../utils/animations.scss";
+@use "../base/base.scss";
 
-h1 {
-    font-family: "Shrikhand", "cursive";
+header { 
+    @media (max-width: 767px) and (min-width: variables.$breakpoint) {
+        padding-right: 30rem;
+    }
+    .flèche {
+        color: colors.$darkgrey;
+        font-size: 20px;
+    }
 }
-img {
-    max-width: 100%;
-}
-.resto__main {
-    position: relative;
-    @include mixins.heart;
-    h2 {
+
+#page-resto {
+    h1 {
         font-family: "Shrikhand", "cursive";
-        padding-top: 0;
-        margin-left: 2rem;
-        @media (max-width: 767px) {
-            margin-left: 0;
-        }
     }
-    i {
-        margin-right: 3rem;
+
+    h3 {
+        font-weight: 100;
+        font-size: 1em;
+        position: relative;
+        color: colors.$grey;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 1.5rem;
+            left: 0.5rem;
+            height: 0.20rem;
+            width: 2.5rem;
+            background-color: colors.$tertiaire;
+        }
+        
+    }
+
+    .banner img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+        object-position: center bottom;
+
         @media (max-width: 767px) {
-            margin-right: 2rem;
+            /*vh = unité de longueur qui là, prend toute la hauteur du viewport*/
+            height: 40vh;
         }
     }
 
+    .resto__titre {
+        position: relative;
+        background: colors.$blocgrey;
+        margin-top: -4.5rem;
+        border-radius: 3rem 3rem 0 0;
+        @include mixins.heart;
+
+        h2 {
+            font-family: "Shrikhand", "cursive";
+            padding: 2rem 1rem;
+            margin: 0;
+
+            @media (max-width: variables.$breakpoint) {
+                margin-left: 1rem;
+            }
+        }
+
+        i {
+            margin-right: 3rem;
+
+            @media (max-width: variables.$breakpoint) {
+                margin-right: 2rem;
+            }
+        }
+    }
+
+    .resto-article {
+        background: colors.$blocgrey;
+        padding: 0 1rem;
+    }
+
+    .menus {
+
+        display: grid;
+        /*3 colonnes qui font toutes 1 fraction de l'écran*/
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding-top: 1.3rem;
+        padding-bottom: 40px;
+
+
+        @media (max-width: variables.$breakpoint) {
+            grid-template-columns: 1fr;
+        }
+
+        .menus__category {
+            border-radius: 1rem;
+            background-color: white;
+            @include mixins.second-shadow;
+            /*pour que la case verte n'apparaissent pas*/
+            overflow: hidden;
+        }
+
+        .menu-titre {
+            display: flex;
+            overflow: hidden;
+            cursor: pointer;
+            @include mixins.second-shadow;
+
+            .menu-titre__prix {
+                display: flex;
+                align-items: center;
+                margin-left: auto;
+                font-weight: bold;
+                padding-top: 1.3rem;
+                padding: 0.7rem;
+            }
+
+            .menu-titre__description {
+                padding: 0.7rem;
+                padding-left: 0.3rem;
+                overflow: hidden;
+
+                h4,
+                p {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    /*force le texte à rester sur une seule ligne*/
+                    white-space: nowrap;
+                }
+            }
+
+            .menu-titre__description h4 {
+                padding-bottom: 0.3rem;
+            }
+
+            .menu-titre__check {
+                display: grid;
+                place-items: center;
+                /*pour empêcher le bouton vert de rétrécir*/
+                flex-shrink: 0;
+                border-radius: 0 1rem 1rem 0;
+                background-color: colors.$tertiaire;
+                margin-right: -4rem;
+                width: 4rem;
+                /*temps d'apparition du bouton vert*/
+                transition: margin-right 0.5s;
+
+                i {
+                    display: grid;
+                    place-items: center;
+                    background: white;
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    border-radius: 1rem;
+                    color: colors.$tertiaire;
+                }
+            }
+
+            &:hover {
+                .menu-titre__check {
+                    margin-right: 0;   
+                }
+
+                i {
+                    @include animations.quarterspin;
+                    animation: quarterspin 1s;
+                }
+            }
+        }
+
+        .order {
+            display: grid;
+            place-items: center;
+            height: 8vh;
+            
+            button {
+                @include mixins.base-button;
+                cursor: pointer;
+            }
+            
+            
+
+        }
+    }
 }
-

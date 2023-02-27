@@ -3,14 +3,9 @@
 
 footer {
     background-color: colors.$darkgrey;
-    margin-left: 7rem;
-    margin-right: 7rem;
     padding: 1rem 2rem;
     color: white;
-    @media (max-width: 767px) {
-        margin-left: 0;
-        margin-right: 0;
-    }
+    margin: 0;
     h2 {
         font-family: "shrikhand", "sans-serif";
         font-weight: normal;
@@ -19,7 +14,6 @@ footer {
     }
    p {
     padding: 0.2rem;
-
    }
    .utensils {
     padding-right: 0.8rem;

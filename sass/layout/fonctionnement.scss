@@ -12,7 +12,7 @@
         display: flex;
         gap: 2rem; /*créer des espaces entre les éléments*/
         /*j'ai mis 1000px pour que les 3 boutons s'alignent sans transision*/
-        @media (max-width: 1000px) {
+        @media (max-width: variables.$breakpoint) {
             flex-direction: column;
             margin-right: 15px;
         }
@@ -43,6 +43,7 @@
         flex-grow: 1; /*les caractères ne doivent pas être plus gros que 1*/
         border-radius: 1rem;
         @include mixins.second-shadow;
+    
         &:hover {
             @include mixins.transform-zoom;
             background-color: colors.$lightprimaire;

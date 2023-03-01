@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr en">
+<html lang="fr">
 
 <!-- Head Informations générales-->
 
@@ -13,94 +13,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./public/css/style.css">
   <script src="https://kit.fontawesome.com/1376405811.js" crossorigin="anonymous"></script>
+
+<!--création d'une icône sur la barre de navigation-->
+  <link rel="apple-touch-icon" sizes="180x180" href="./public/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./public/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./public/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./public/images/favicon/site.webmanifest">
   <title>OHMYFOOD</title>
 </head>
 
 <!--Body Corps de la page-->
-
 <body>
+
+  <!--Loading spinner-->
+  <div class="loader">
+  </div>
+
   <!--Header Entête de la page web-->
   <header>
     <div class="logo">ohmyfood
     </div>
-    </header>
+  </header>
 
-    <main>
+  <main>
     <div class="pays-villes">
       <i class="fa-solid fa-location-dot"></i>
       <h5>Paris, Belleville</h5>
-</div>
-<!--SECTION EXPLOREZ-->
-<section class="explorez">
+    </div>
+    <!--SECTION EXPLOREZ-->
+    <section class="explorez">
       <h2>Réservez le menu qui<br>vous convient</h2>
       <p>Découvrez des restaurants d'exception,<br>sélectionnés par nos soins.</p>
       <button>Explorez nos restaurants</button>
-  </section>
+    </section>
 
-  <section class="fonctionnement">
-    <h2>Fonctionnement</h2>
-    <ol>
-      <li><i class="fas fa-mobile-alt"></i>Choisissez un restaurant</li>
-      <li><i class="fas fa-list-ul"></i>Composez votre menu</li>
-      <li><i class="fas fa-store"></i>Dégustez au restaurant</li>
-    </ol>
-  </section>
+    <section class="fonctionnement">
+      <h2>Fonctionnement</h2>
+      <ol>
+        <li><i class="fas fa-mobile-alt"></i>Choisissez un restaurant</li>
+        <li><i class="fas fa-list-ul"></i>Composez votre menu</li>
+        <li><i class="fas fa-store"></i>Dégustez au restaurant</li>
+      </ol>
+    </section>
 
-  <!--CARDS MENUS-->
-<article class="menus">
-  <h2>Restaurants</h2>
-    <div class="menus__cards">
-  <a href="./sass/pages/resto-1.html" class="card new">
-    <div class="card__image card__image-1"></div>
-    <div class="card__description">
-      <h3>La palette du goût</h3>
-      <p>Ménilmontant</p>
-      <i class="far fa-heart"></i>
-      <i class="fas fa-heart"></i>
-    </div>
-    </a>
-  <a href="#" class="card new">
-    <div class=" card__image card__image-2"></div>
-    <div class="card__description">
-    <h3>La note enchantée</h3>
-    <p>Charonne</p>
-    <i class="far fa-heart"></i>
-    <i class="fas fa-heart"></i>
-    </div>
-    </a>
-  <a href="#" class="card">
-    <div class=" card__image card__image-3"></div>
-    <div class="card__description">
-        <h3>À la française</h3>
-        <p>Cité Rouge</p>
-        <i class="far fa-heart"></i>
-        <i class="fas fa-heart"></i>
-    </div>
-    </a>
-  <a href="#" class="card">
-    <div class=" card__image card__image-4"></div>
-    <div class="card__description">
-      <h3>Le délice des sens</h3>
-      <p>Folie-Méricourt</p>
-      <i class="far fa-heart"></i>
-      <i class="fas fa-heart"></i>
-    </div>
-    </a>
-  </div>
-</article>
-</main>
-<footer>
-<h2>ohmyfood</h2>
-<p>
-  <i class="utensils fas fa-utensils"></i>
-  Proposer un restaurant</p>
-<p>
-  <i class="helping fas fa-hands-helping"></i>
-  Devenir partenaire</p>
-<p>Mentions légales</p>
-<p>
-  <a href="mailto:crisolyne1618@orange.fr">Contact</a>
-</p>
-</footer>
+    <!--CARDS MENUS-->
+    <article class="menus">
+      <h2>Restaurants</h2>
+      <div class="menus__cards">
+        <a href="./sass/pages/resto-1.html" class="card new">
+          <div class="card__image card__image-1"></div>
+          <div class="card__description">
+            <h3>La palette du goût</h3>
+            <p>Ménilmontant</p>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+        </a>
+        <a href="./sass/pages/resto-2.html" class="card new">
+          <div class=" card__image card__image-2"></div>
+          <div class="card__description">
+            <h3>La note enchantée</h3>
+            <p>Charonne</p>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+        </a>
+        <a href="./sass/pages/resto-3.html" class="card">
+          <div class=" card__image card__image-3"></div>
+          <div class="card__description">
+            <h3>À la française</h3>
+            <p>Cité Rouge</p>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+        </a>
+        <a href="./sass/pages/resto-4.html" class="card">
+          <div class=" card__image card__image-4"></div>
+          <div class="card__description">
+            <h3>Le délice des sens</h3>
+            <p>Folie-Méricourt</p>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+        </a>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <h2>ohmyfood</h2>
+    <p>
+      <i class="utensils fas fa-utensils"></i>
+      Proposer un restaurant
+    </p>
+    <p>
+      <i class="helping fas fa-hands-helping"></i>
+      Devenir partenaire
+    </p>
+    <p>Mentions légales</p>
+    <p>
+      <a href="mailto:crisolyne1618@orange.fr">Contact</a>
+    </p>
+    <p>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer">
+          <img style="border:0;width:88px;height:31px"
+              src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+              alt="CSS Valide !" >
+          </a>
+      </p>
+  </footer>
 </body>
+
 </html>

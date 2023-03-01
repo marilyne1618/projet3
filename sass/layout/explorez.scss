@@ -7,19 +7,55 @@
     background-color: colors.$blocgrey;
     height: 300px;
     text-align: center;
-    
-    
+
+
     h2 {
         margin-top: 0;
         padding-top: 40px;
         font-size: 1.5rem;
         font-weight: bold;
     }
+
     & p {
         font-size: 1rem;
         color: #464646da;
     }
+
     & button {
-    @include mixins.base-button;
+        @include mixins.base-button;
+    }
+
+    /*loader spiner*/
 }
+
+.loader {
+    /*fixed pour que la page d'accueil n'apparaisse pas lors d'un scroll*/
+    position: fixed;
+    display: grid;
+    place-items: center;
+    /* z-index recouvre les éléments de la page en fonction du chiffre adapté*/
+    z-index: 1;
+    height: 100vh;
+    /*inset pour interpréter les marges des 4 côtés de l'écran*/
+    inset: 0;
+    background-color: #ffffff;
+    opacity: 0.9;
+    animation: disparition 200ms;
+    animation-delay: 2s;
+    /*pour que l'animation une fois terminée ne revienne pas en boucle*/
+    animation-fill-mode: forwards;
+    /*pour que le voile blanc se dirige vers le haut*/
+    transform-origin: top;
+
+
+    &::after {
+        content: "";
+
+        border-left: 20px solid #9356dc;
+        border-right: 20px solid #FF79DA;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        animation: spin 2s infinite linear;
+    }
 }

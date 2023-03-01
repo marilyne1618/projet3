@@ -1,0 +1,15 @@
+Lien vers Repository GitHub
+
+https://github.com/marilyne1618/projet3.git
+
+
+
+
+
+
+
+Lien de validation W3C CSS
+
+http://jigsaw.w3.org/css-validator/validator$link
+or
+http://jigsaw.w3.org/css-validator/check/referer (uniquement avec des documents HTML/XML)

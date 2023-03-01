@@ -5,13 +5,21 @@
 @use "../utils/animations.scss";
 @use "../base/base.scss";
 
-header { 
+header {
     @media (max-width: 767px) and (min-width: variables.$breakpoint) {
         padding-right: 30rem;
     }
+
     .flèche {
         color: colors.$darkgrey;
         font-size: 20px;
+
+        /*faire grossir la flèche de retour à l'accueil*/
+        &:hover {
+            @include mixins.transform-zoom2;
+            /*temps d'apparition du zoom de la flèche*/
+            transition: transform 200ms;
+        }
     }
 }
 
@@ -35,7 +43,7 @@ header {
             width: 2.5rem;
             background-color: colors.$tertiaire;
         }
-        
+
     }
 
     .banner img {
@@ -84,8 +92,13 @@ header {
     .menus {
 
         display: grid;
-        /*3 colonnes qui font toutes 1 fraction de l'écran*/
-        grid-template-columns: repeat(3, 1fr);
+
+        @media (max-width: 767px) {
+            /*3 colonnes qui font toutes 1 fraction de l'écran*/
+            grid-template-columns: repeat(3, 1fr);
+
+        }
+
         gap: 1rem;
         padding-top: 1.3rem;
         padding-bottom: 40px;
@@ -101,13 +114,25 @@ header {
             @include mixins.second-shadow;
             /*pour que la case verte n'apparaissent pas*/
             overflow: hidden;
-        }
 
-        .menu-titre {
-            display: flex;
-            overflow: hidden;
-            cursor: pointer;
-            @include mixins.second-shadow;
+            /*animation du premier élément au 3ème élément*/
+            /*cette formule évite de donner des classes dans le html*/
+            @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                    animation-delay: 0.5s*$i;
+                }
+            }
+
+            /*les éléments restent en place avant et après l'animation*/
+            animation: apparition 1s;
+            animation-fill-mode: both;
+
+            .menu-titre {
+                display: flex;
+                overflow: hidden;
+                cursor: pointer;
+                @include mixins.second-shadow;
+            }
 
             .menu-titre__prix {
                 display: flex;
@@ -148,6 +173,7 @@ header {
                 /*temps d'apparition du bouton vert*/
                 transition: margin-right 0.5s;
 
+                /*cercle à l'intérieur du bouton*/
                 i {
                     display: grid;
                     place-items: center;
@@ -159,9 +185,10 @@ header {
                 }
             }
 
+            /*faire tourner le cercle 1/4 de tour au vole du curseur*/
             &:hover {
                 .menu-titre__check {
-                    margin-right: 0;   
+                    margin-right: 0;
                 }
 
                 i {
@@ -175,13 +202,13 @@ header {
             display: grid;
             place-items: center;
             height: 8vh;
-            
+
             button {
                 @include mixins.base-button;
                 cursor: pointer;
             }
-            
-            
+
+
 
         }
     }

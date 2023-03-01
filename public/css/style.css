@@ -6,8 +6,13 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 7rem 0 7rem;
   font-family: "Roboto", sans-serif;
+}
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+  }
 }
 
 header {
@@ -48,7 +53,8 @@ h5 {
 
 a {
   text-decoration: none;
-  color: inherit; /*couleur héritée du parent*/
+  color: inherit;
+  /*couleur héritée du parent*/
 }
 
 .menus__cards {
@@ -91,6 +97,7 @@ header {
   background-color: #f1f1f1;
   height: 300px;
   text-align: center;
+  /*loader spiner*/
 }
 .explorez h2 {
   margin-top: 0;
@@ -121,6 +128,35 @@ header {
   opacity: 0.9;
 }
 
+.loader {
+  /*fixed pour que la page d'accueil n'apparaisse pas lors d'un scroll*/
+  position: fixed;
+  display: grid;
+  place-items: center;
+  /* z-index recouvre les éléments de la page en fonction du chiffre adapté*/
+  z-index: 1;
+  height: 100vh;
+  /*inset pour interpréter les marges des 4 côtés de l'écran*/
+  inset: 0;
+  background-color: #ffffff;
+  opacity: 0.9;
+  animation: disparition 200ms;
+  animation-delay: 2s;
+  /*pour que l'animation une fois terminée ne revienne pas en boucle*/
+  animation-fill-mode: forwards;
+  /*pour que le voile blanc se dirige vers le haut*/
+  transform-origin: top;
+}
+.loader::after {
+  content: "";
+  border-left: 20px solid #9356dc;
+  border-right: 20px solid #FF79DA;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  animation: spin 2s infinite linear;
+}
+
 /*création d'une variable pour les pastilles des compteurs*/
 .fonctionnement {
   /*variable pour faire les compteurs des 3 boutons*/
@@ -130,7 +166,8 @@ header {
 }
 .fonctionnement ol {
   display: flex;
-  gap: 2rem; /*créer des espaces entre les éléments*/
+  gap: 2rem;
+  /*créer des espaces entre les éléments*/
   /*j'ai mis 1000px pour que les 3 boutons s'alignent sans transision*/
 }
 @media (max-width: 1000px) {
@@ -141,11 +178,15 @@ header {
 }
 .fonctionnement li {
   position: relative;
+  display: flex;
+  align-items: center;
   /*variable pour faire les compteurs des 3 boutons, et pas besoins d'indiquer les chiffres dans le html*/
-  list-style-type: none; /*ne pas faire apparaître les chiffres indiqués dans le css*/
+  list-style-type: none;
+  /*ne pas faire apparaître les chiffres indiqués dans le css*/
   background-color: #fdfcff;
   padding: 1.5rem 2rem;
-  flex-grow: 1; /*les caractères ne doivent pas être plus gros que 1*/
+  flex-grow: 1;
+  /*les caractères ne doivent pas être plus gros que 1*/
   border-radius: 1rem;
   box-shadow: 2px 5px 8px 2px #e9e9e9;
 }
@@ -170,13 +211,13 @@ header {
   transform: scale(1.02);
   background-color: rgba(244, 232, 248, 0.9254901961);
 }
+.fonctionnement li:hover i::before {
+  color: #9356dc;
+}
 .fonctionnement li i.fas {
   margin-right: 1rem;
   color: #7e7e7e;
   font-size: 1.5rem;
-}
-.fonctionnement li i.fas:hover {
-  color: #9356dc;
 }
 
 .menus {
@@ -185,26 +226,33 @@ header {
 }
 .menus .menus__cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /*mettre sur deux colonnes*/
+  grid-template-columns: repeat(2, 1fr);
+  /*mettre sur deux colonnes*/
   gap: 2rem;
 }
 @media (max-width: 1000px) {
   .menus .menus__cards {
-    grid-template-columns: repeat(1, 1fr); /*mettre sur une colonne*/
+    grid-template-columns: repeat(1, 1fr);
+    /*mettre sur une colonne*/
   }
 }
 .menus .menus__cards .new {
-  position: relative; /*élément parent*/
+  position: relative;
+  /*élément parent*/
 }
-.menus .menus__cards .new::before { /*pour qu'il n'y ai que le css qui rajoute le badge sans intervenir dans le html*/
+.menus .menus__cards .new::before {
+  /*pour qu'il n'y ai que le css qui rajoute le badge sans intervenir dans le html*/
   content: "nouveau";
-  position: absolute; /*élément enfant*/
+  position: absolute;
+  /*élément enfant*/
   height: 2rem;
   width: 5rem;
   background-color: #99E2D0;
-  color: #278870; /*rend la couleur plus foncée de 50%*/
+  color: #278870;
+  /*rend la couleur plus foncée de 50%*/
   display: grid;
-  place-items: center; /*centre verticalement et horizontalements*/
+  place-items: center;
+  /*centre verticalement et horizontalements*/
   right: 1rem;
   top: 1rem;
 }
@@ -212,6 +260,7 @@ header {
   border-radius: 1rem 1rem 0 0;
   height: 30rem;
   background-size: cover;
+  background-position: center;
 }
 @media (max-width: 767px) {
   .menus .card__image {
@@ -249,9 +298,11 @@ header {
   color: transparent;
   background-image: linear-gradient(to bottom right, #FF79DA, #9356dc);
   background-clip: text;
-  -webkit-background-clip: text; /*s'adapte, si la ligne du dessus ne fonctionne pas*/
+  /*s'adapte, si la ligne du dessus ne fonctionne pas*/
+  -webkit-background-clip: text;
   opacity: 0;
-  transition: all 200ms; /*vitesse à laquelle apparaît la couleur*/
+  /*vitesse à laquelle apparaît la couleur*/
+  transition: all 200ms;
 }
 .menus .card__description:hover .fas {
   opacity: 1;
@@ -287,6 +338,28 @@ footer .helping {
   padding-right: 0.5rem;
 }
 
+@keyframes apparition {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/*disparition du voile blanc*/
+@keyframes disparition {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 @media (max-width: 767px) and (min-width: 1000px) {
   header {
     padding-right: 30rem;
@@ -295,6 +368,12 @@ footer .helping {
 header .flèche {
   color: #3d3d3d;
   font-size: 20px;
+  /*faire grossir la flèche de retour à l'accueil*/
+}
+header .flèche:hover {
+  transform: scale(1.5);
+  /*temps d'apparition du zoom de la flèche*/
+  transition: transform 200ms;
 }
 
 #page-resto h1 {
@@ -346,9 +425,11 @@ header .flèche {
   color: transparent;
   background-image: linear-gradient(to bottom right, #FF79DA, #9356dc);
   background-clip: text;
-  -webkit-background-clip: text; /*s'adapte, si la ligne du dessus ne fonctionne pas*/
+  /*s'adapte, si la ligne du dessus ne fonctionne pas*/
+  -webkit-background-clip: text;
   opacity: 0;
-  transition: all 200ms; /*vitesse à laquelle apparaît la couleur*/
+  /*vitesse à laquelle apparaît la couleur*/
+  transition: all 200ms;
 }
 #page-resto .resto__titre:hover .fas {
   opacity: 1;
@@ -379,11 +460,15 @@ header .flèche {
 }
 #page-resto .menus {
   display: grid;
-  /*3 colonnes qui font toutes 1 fraction de l'écran*/
-  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding-top: 1.3rem;
   padding-bottom: 40px;
+}
+@media (max-width: 767px) {
+  #page-resto .menus {
+    /*3 colonnes qui font toutes 1 fraction de l'écran*/
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (max-width: 1000px) {
   #page-resto .menus {
@@ -396,14 +481,29 @@ header .flèche {
   box-shadow: 2px 5px 8px 2px #e9e9e9;
   /*pour que la case verte n'apparaissent pas*/
   overflow: hidden;
+  /*animation du premier élément au 3ème élément*/
+  /*cette formule évite de donner des classes dans le html*/
+  /*les éléments restent en place avant et après l'animation*/
+  animation: apparition 1s;
+  animation-fill-mode: both;
+  /*faire tourner le cercle 1/4 de tour au vole du curseur*/
 }
-#page-resto .menus .menu-titre {
+#page-resto .menus .menus__category:nth-child(1) {
+  animation-delay: 0.5s;
+}
+#page-resto .menus .menus__category:nth-child(2) {
+  animation-delay: 1s;
+}
+#page-resto .menus .menus__category:nth-child(3) {
+  animation-delay: 1.5s;
+}
+#page-resto .menus .menus__category .menu-titre {
   display: flex;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 2px 5px 8px 2px #e9e9e9;
 }
-#page-resto .menus .menu-titre .menu-titre__prix {
+#page-resto .menus .menus__category .menu-titre__prix {
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -411,22 +511,22 @@ header .flèche {
   padding-top: 1.3rem;
   padding: 0.7rem;
 }
-#page-resto .menus .menu-titre .menu-titre__description {
+#page-resto .menus .menus__category .menu-titre__description {
   padding: 0.7rem;
   padding-left: 0.3rem;
   overflow: hidden;
 }
-#page-resto .menus .menu-titre .menu-titre__description h4,
-#page-resto .menus .menu-titre .menu-titre__description p {
+#page-resto .menus .menus__category .menu-titre__description h4,
+#page-resto .menus .menus__category .menu-titre__description p {
   overflow: hidden;
   text-overflow: ellipsis;
   /*force le texte à rester sur une seule ligne*/
   white-space: nowrap;
 }
-#page-resto .menus .menu-titre .menu-titre__description h4 {
+#page-resto .menus .menus__category .menu-titre__description h4 {
   padding-bottom: 0.3rem;
 }
-#page-resto .menus .menu-titre .menu-titre__check {
+#page-resto .menus .menus__category .menu-titre__check {
   display: grid;
   place-items: center;
   /*pour empêcher le bouton vert de rétrécir*/
@@ -437,8 +537,9 @@ header .flèche {
   width: 4rem;
   /*temps d'apparition du bouton vert*/
   transition: margin-right 0.5s;
+  /*cercle à l'intérieur du bouton*/
 }
-#page-resto .menus .menu-titre .menu-titre__check i {
+#page-resto .menus .menus__category .menu-titre__check i {
   display: grid;
   place-items: center;
   background: white;
@@ -447,11 +548,12 @@ header .flèche {
   border-radius: 1rem;
   color: #99E2D0;
 }
-#page-resto .menus .menu-titre:hover .menu-titre__check {
+#page-resto .menus .menus__category:hover .menu-titre__check {
   margin-right: 0;
 }
-#page-resto .menus .menu-titre:hover i {
+#page-resto .menus .menus__category:hover i {
   /*@keyframes est à l'intérieur d'une mixin pour pouvoir être importé*/
+  /*ce @keyframes effectue une rotation de 1/4 de tour d'un cercle*/
   animation: quarterspin 1s;
 }
 @keyframes quarterspin {

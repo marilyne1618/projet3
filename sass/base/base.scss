@@ -8,8 +8,13 @@
 }
 
 body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
+  @media (max-width: 768px) {
+    margin: 0;
+  }
+
+  margin: 0 7rem 0 7rem;
+  font-family: "Roboto",
+  sans-serif;
 }
 
 header {
@@ -18,11 +23,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  
+
 }
 
 main {
   padding: 0rem;
+
   @media (max-width: 768px) {
     padding: 0 0;
   }
@@ -36,9 +42,9 @@ h2 {
 }
 
 h3,
-h4, 
+h4,
 p {
-  margin:0;
+  margin: 0;
   padding-left: 0.5rem;
 }
 
@@ -49,7 +55,8 @@ h5 {
 
 a {
   text-decoration: none;
-  color: inherit; /*couleur héritée du parent*/
+  color: inherit;
+  /*couleur héritée du parent*/
 }
 
 .menus__cards {

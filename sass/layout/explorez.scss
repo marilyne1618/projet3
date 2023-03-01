@@ -6,8 +6,11 @@
 .explorez {
     background-color: colors.$blocgrey;
     height: 330px;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     text-align: center;
+    @media (max-width: 767px) {
+        height: 350px;
+    }
 
     .presentation {
         padding: 0 2rem 0 2rem;

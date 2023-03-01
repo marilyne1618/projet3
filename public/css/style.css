@@ -96,8 +96,13 @@ header {
 .explorez {
   background-color: #f1f1f1;
   height: 330px;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   text-align: center;
+}
+@media (max-width: 767px) {
+  .explorez {
+    height: 350px;
+  }
 }
 .explorez .presentation {
   padding: 0 2rem 0 2rem;

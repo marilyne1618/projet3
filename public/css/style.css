@@ -92,6 +92,39 @@ header {
   padding-top: 0;
 }
 
+/*Effectue une rotation de 1/4 de tour d'un cercle dans la sélection des menus dans restaurants.scss*/
+@keyframes quarterspin {
+  0% {
+    transform: rotate(-270deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+/*Fait apparaître les boutons verts dans la sélection des menus dans restaurants.scss*/
+@keyframes apparition {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/*disparition du voile blanc sur la page d'accueil dans explorez.scss*/
+@keyframes disparition {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+/*Fait tourner le spiner à l'ouverture de la page d'accueil dans explorez.scss*/
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 /*SECTION EXPLOREZ*/
 .explorez {
   background-color: #f1f1f1;
@@ -139,7 +172,7 @@ header {
   opacity: 0.9;
 }
 
-/*loader spiner*/
+/* Animarion loader spiner à l'ouverture de la page d'accueil*/
 .loader {
   /*fixed pour que la page d'accueil n'apparaisse pas lors d'un scroll*/
   position: fixed;
@@ -352,28 +385,6 @@ footer .helping {
   padding-right: 0.5rem;
 }
 
-@keyframes apparition {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-/*disparition du voile blanc*/
-@keyframes disparition {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(0);
-  }
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 @media (max-width: 767px) and (min-width: 1000px) {
   header {
     padding-right: 30rem;
@@ -566,17 +577,7 @@ header .flèche:hover {
   margin-right: 0;
 }
 #page-resto .menus .menus__category:hover i {
-  /*@keyframes est à l'intérieur d'une mixin pour pouvoir être importé*/
-  /*ce @keyframes effectue une rotation de 1/4 de tour d'un cercle*/
   animation: quarterspin 1s;
-}
-@keyframes quarterspin {
-  0% {
-    transform: rotate(-270deg);
-  }
-  100% {
-    transform: rotate(0);
-  }
 }
 #page-resto .menus .order {
   display: grid;

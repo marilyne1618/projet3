@@ -1,5 +1,6 @@
 @use "../utils/mixins.scss";
 @use "../utils/colors.scss";
+@use "../utils/animations.scss";
 
 
 /*SECTION EXPLOREZ*/
@@ -8,6 +9,7 @@
     height: 330px;
     padding-bottom: 2rem;
     text-align: center;
+
     @media (max-width: 767px) {
         height: 350px;
     }
@@ -36,7 +38,7 @@
     }
 }
 
-/*loader spiner*/
+/* Animarion loader spiner à l'ouverture de la page d'accueil*/
 .loader {
     /*fixed pour que la page d'accueil n'apparaisse pas lors d'un scroll*/
     position: fixed;

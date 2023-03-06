@@ -128,18 +128,8 @@ header {
 /*SECTION EXPLOREZ*/
 .explorez {
   background-color: #f1f1f1;
-  height: 330px;
-  padding-bottom: 2rem;
-  text-align: center;
-}
-@media (max-width: 767px) {
-  .explorez {
-    height: 350px;
-  }
-}
-.explorez .presentation {
-  padding: 0 2rem 0 2rem;
-  color: rgba(25, 25, 26, 0.8549019608);
+  height: 250px;
+  padding-bottom: 2.5rem;
   text-align: center;
 }
 .explorez h2 {
@@ -149,11 +139,11 @@ header {
   font-weight: bold;
 }
 .explorez p {
+  margin-bottom: 0.5rem;
   font-size: 1rem;
   color: rgba(70, 70, 70, 0.8549019608);
 }
 .explorez button {
-  margin-bottom: 2rem;
   margin-top: 1rem;
   color: white;
   font-weight: 500;

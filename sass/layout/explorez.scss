@@ -6,19 +6,9 @@
 /*SECTION EXPLOREZ*/
 .explorez {
     background-color: colors.$blocgrey;
-    height: 330px;
-    padding-bottom: 2rem;
+    height: 250px;
+    padding-bottom: 2.5rem;
     text-align: center;
-
-    @media (max-width: 767px) {
-        height: 350px;
-    }
-
-    .presentation {
-        padding: 0 2rem 0 2rem;
-        color: #19191ada;
-        text-align: center;
-    }
 
     h2 {
         margin-top: 0;
@@ -28,12 +18,12 @@
     }
 
     & p {
+        margin-bottom: 0.5rem;
         font-size: 1rem;
         color: #464646da;
     }
 
     & button {
-        margin-bottom: 2rem;
         @include mixins.base-button;
     }
 }

@@ -96,7 +96,6 @@ header {
         @media (max-width: 767px) {
             /*3 colonnes qui font toutes 1 fraction de l'écran*/
             grid-template-columns: repeat(3, 1fr);
-
         }
 
         gap: 1rem;

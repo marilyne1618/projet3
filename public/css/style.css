@@ -193,6 +193,7 @@ header {
 }
 
 /*création d'une variable pour les pastilles des compteurs*/
+/*création d'une variable pour les tablettes*/
 .fonctionnement {
   /*variable pour faire les compteurs des 3 boutons*/
   counter-reset: compteurs;

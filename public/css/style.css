@@ -220,7 +220,7 @@ header {
   align-items: center;
   /*variable pour faire les compteurs des 3 boutons, et pas besoins d'indiquer les chiffres dans le html*/
   list-style-type: none;
-  /*ne pas faire apparaître les chiffres indiqués dans le css*/
+  /*ne pas faire apparaître les chiffres indiqués dans le html*/
   background-color: #fdfcff;
   padding: 1.5rem 2rem;
   flex-grow: 1;
@@ -287,7 +287,7 @@ header {
   width: 5rem;
   background-color: #99E2D0;
   color: #278870;
-  /*rend la couleur plus foncée de 50%*/
+  /*rend la couleur plus foncée de 40%*/
   display: grid;
   place-items: center;
   /*centre verticalement et horizontalements*/

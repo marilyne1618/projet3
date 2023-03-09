@@ -122,8 +122,8 @@ header {
                 }
             }
 
-            /*les éléments restent en place avant et après l'animation*/
             animation: apparition 1s;
+            /*les éléments restent en place avant et après l'animation*/
             animation-fill-mode: both;
 
             .menu-titre {
@@ -149,7 +149,9 @@ header {
 
                 h4,
                 p {
+                    /*cache tout ce qui dépasse de l'élément*/
                     overflow: hidden;
+                    /*définit la façon dont le contenu textuel qui dépasse est signalé par les "..."*/
                     text-overflow: ellipsis;
                     /*force le texte à rester sur une seule ligne*/
                     white-space: nowrap;
@@ -196,6 +198,7 @@ header {
             }
         }
 
+        /*Bouton commander*/
         .order {
             display: grid;
             place-items: center;

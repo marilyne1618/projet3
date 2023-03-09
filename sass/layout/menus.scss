@@ -18,15 +18,15 @@
         }
 
         .new {
-            position: relative;
             /*élément parent*/
+            position: relative;
         }
 
         .new::before {
             /*pour qu'il n'y ai que le css qui rajoute le badge sans intervenir dans le html*/
             content: "nouveau";
-            position: absolute;
             /*élément enfant*/
+            position: absolute;
             height: 2rem;
             width: 5rem;
             background-color: colors.$tertiaire;

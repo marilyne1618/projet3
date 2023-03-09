@@ -203,10 +203,10 @@ header {
   font-weight: bold;
 }
 .fonctionnement ol {
+  /*créer des espaces entre les éléments*/
   display: flex;
   gap: 2rem;
-  /*créer des espaces entre les éléments*/
-  /*j'ai mis 1000px pour que les 3 boutons s'alignent sans transision*/
+  /*j'ai mis 1000px pour que les 3 boutons s'alignent sans transition*/
 }
 @media (max-width: 1000px) {
   .fonctionnement ol {
@@ -275,14 +275,14 @@ header {
   }
 }
 .menus .menus__cards .new {
-  position: relative;
   /*élément parent*/
+  position: relative;
 }
 .menus .menus__cards .new::before {
   /*pour qu'il n'y ai que le css qui rajoute le badge sans intervenir dans le html*/
   content: "nouveau";
-  position: absolute;
   /*élément enfant*/
+  position: absolute;
   height: 2rem;
   width: 5rem;
   background-color: #99E2D0;
@@ -479,6 +479,7 @@ header .flèche:hover {
   gap: 1rem;
   padding-top: 1.3rem;
   padding-bottom: 40px;
+  /*Bouton commander*/
 }
 @media (max-width: 767px) {
   #page-resto .menus {
@@ -499,8 +500,8 @@ header .flèche:hover {
   overflow: hidden;
   /*animation du premier élément au 3ème élément*/
   /*cette formule évite de donner des classes dans le html*/
-  /*les éléments restent en place avant et après l'animation*/
   animation: apparition 1s;
+  /*les éléments restent en place avant et après l'animation*/
   animation-fill-mode: both;
   /*faire tourner le cercle 1/4 de tour au vole du curseur*/
 }
@@ -534,7 +535,9 @@ header .flèche:hover {
 }
 #page-resto .menus .menus__category .menu-titre__description h4,
 #page-resto .menus .menus__category .menu-titre__description p {
+  /*cache tout ce qui dépasse de l'élément*/
   overflow: hidden;
+  /*définit la façon dont le contenu textuel qui dépasse est signalé par les "..."*/
   text-overflow: ellipsis;
   /*force le texte à rester sur une seule ligne*/
   white-space: nowrap;

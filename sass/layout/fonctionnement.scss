@@ -12,11 +12,11 @@
     font-weight: bold;
 
     & ol {
+        /*créer des espaces entre les éléments*/
         display: flex;
         gap: 2rem;
-
-        /*créer des espaces entre les éléments*/
-        /*j'ai mis 1000px pour que les 3 boutons s'alignent sans transision*/
+    
+        /*j'ai mis 1000px pour que les 3 boutons s'alignent sans transition*/
         @media (max-width: variables.$breakpoint) {
             flex-direction: column;
             margin-right: 15px;
